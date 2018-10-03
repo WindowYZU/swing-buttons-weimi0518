@@ -6,36 +6,59 @@
 package lendle.courses.wp.buttonsamples;
 
 import java.awt.FlowLayout;
-import java.awt.Image;
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JToggleButton;
 import javax.swing.WindowConstants;
 
 /**
  *
  * @author lendle
  */
-public class ActionListenerSample1 {
+public class RadioButtonSample {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        JFrame frame=new JFrame();
+        JFrame frame = new JFrame();
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLayout(new FlowLayout());
+        JRadioButton radio1 = new JRadioButton("radio1");
+        JRadioButton radio2 = new JRadioButton("radio2");
+        JCheckBox checkBox=new JCheckBox("check1");
+        JToggleButton toggleButton=new JToggleButton("toggle1");
         
-        JButton button=new JButton("click");
-        //利用 addActionListener 將 SampleActionListener 設定給 button
+        frame.add(radio1);
+        frame.add(radio2);
+        frame.add(checkBox);
+        frame.add(toggleButton);
+        //建立 ButtonGroup，把 radio1, radio2 加到 ButtonGroup
+        ButtonGroup group=new ButtonGroup();
+        group.add(radio1);
+        group.add(radio2);
+        group.add(checkBox);
+        group.add(toggleButton);
+        ActionListener listener=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, ""+radio1.isSelected()+". "+radio1.isSelected()+", "+checkBox.isSelected()+", "+toggleButton.isSelected());
+            }
+        };
+        radio1.addActionListener(listener);
+        radio2.addActionListener(listener);
+        checkBox.addActionListener(listener);
+        toggleButton.addActionListener(listener);
+        ////////////////////////////////////////////////////
         
-        //////////////////////////////////////////////////////
-        frame.add(button);
-        
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
     }
-    
+
 }

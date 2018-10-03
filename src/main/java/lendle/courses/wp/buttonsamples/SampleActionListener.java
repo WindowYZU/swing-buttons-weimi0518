@@ -16,7 +16,8 @@ public class SampleActionListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("clicked!");
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //1. override ActionListener
     //2. 裡面寫 System.out.println("clicked!");

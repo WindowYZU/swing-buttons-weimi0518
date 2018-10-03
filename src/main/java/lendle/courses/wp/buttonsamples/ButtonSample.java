@@ -35,7 +35,8 @@ public class ButtonSample {
         JButton button=new JButton("Find");
         button.setMnemonic('F');
         ImageIcon icon=new ImageIcon(new URL("http://icons.iconarchive.com/icons/aha-soft/free-3d-glossy-interface/64/search-icon.png"));
-        ImageIcon icon2=new ImageIcon(icon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+        ImageIcon icon2=new ImageIcon(
+                icon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         button.setIcon(icon2);
         ////////////////////////////////////
         frame.add(button);
